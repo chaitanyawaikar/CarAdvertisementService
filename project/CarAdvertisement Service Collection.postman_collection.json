@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "0909849a-1ff0-4cf2-9bbf-e794b1f3c5f8",
+		"name": "CarAdvertisement Service Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Table Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:9000/setup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"setup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get car advertisement By id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 100,\n    \"title\": \"title\",\n    \"fuel\": \"Gasoline1\",\n    \"price\": 999,\n    \"isNew\": false,\n    \"mileage\": 20\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/advertisement-service/cars/api/ads/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"advertisement-service",
+						"cars",
+						"api",
+						"ads",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Dummy Entries in DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/create-entries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"create-entries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all car Advertisements",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 100,\n    \"title\": \"title\",\n    \"fuel\": \"Gasoline1\",\n    \"price\": 999,\n    \"isNew\": false,\n    \"mileage\": 20\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/advertisement-service/cars/api/ads?sortBy=mileage&sortOrder=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"advertisement-service",
+						"cars",
+						"api",
+						"ads"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "mileage"
+						},
+						{
+							"key": "sortOrder",
+							"value": "desc"
+						}
+					]
+				},
+				"description": "Default sorting order is by id in ascending order.\nSorting is also provided on price and mileage of the vehicle."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Advertisement By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 100,\n    \"title\": \"title\",\n    \"fuel\": \"Gasoline1\",\n    \"price\": 999,\n    \"isNew\": false,\n    \"mileage\": 20\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/advertisement-service/cars/api/ads/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"advertisement-service",
+						"cars",
+						"api",
+						"ads",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Car Advertisement ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"\",\n    \"fuel\": \"Gasoline\",\n    \"price\": 10000000,\n    \"isNew\": true,\n    \"mileage\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/advertisement-service/cars/api/ads",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"advertisement-service",
+						"cars",
+						"api",
+						"ads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create car Advertisement ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"\",\n    \"fuel\": \"Gasoline\",\n    \"price\": 10000000,\n    \"isNew\": true,\n    \"mileage\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/advertisement-service/cars/api/ads",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"advertisement-service",
+						"cars",
+						"api",
+						"ads"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
