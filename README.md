@@ -8,7 +8,11 @@ Tech stack details
 3) Slick ORM
 4) Scalatest and Mockito
 ----------
-### How to setup the application ?
+### How to start using the application ?
+Just clone the project in your IDE, install the sbt plugin and do a build of the project. This will download all the dependencies. Then simply run the command 'run' in the sbt shell. The application will automatically start listening to port 9000. Also please download the postman collection file "CarAdvertisement Service Collection.postman_collection.json"  from the project folder and import it in your postman. Your application is now ready to be used.
+
+----------
+### How to start using the application ?
 
 For simplicity, two endpoints have been created
 ##### /setup #### 
