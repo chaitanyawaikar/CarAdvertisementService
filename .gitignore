@@ -1,0 +1,9 @@
+#Files to be ignored in git
+build
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
