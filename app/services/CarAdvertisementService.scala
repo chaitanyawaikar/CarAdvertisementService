@@ -15,15 +15,18 @@ class CarAdvertisementService @Inject()(repo: CarAdvertisementRepository)(implic
     repo.deleteAdvertisement(id)
   }
 
-  def getAllAdvertisements(sortBy: Option[String], sortOrder: Option[String], pageNumber: Option[Int]): Future[Either[String, Seq[CarAdvertisementModel]]] = {
+  def getAllAdvertisements(sortBy: Option[String] = None, sortOrder: Option[String] = None, pageNumber: Option[Int] = None): Future[Either[String, Seq[CarAdvertisementModel]]] = {
 
     checkSortingCriteria(sortBy, sortOrder) match {
+
       case Right((sortBy, sortOrder)) =>
         repo.getAllAdvertisements().map {
+
           getResp =>
             getResp match {
+
               case Right(data) =>
-                Right(sortData(data,sortBy,sortOrder))
+                Right(sortData(data, sortBy, sortOrder))
               case Left(error) =>
                 Left(error)
             }
@@ -46,9 +49,12 @@ class CarAdvertisementService @Inject()(repo: CarAdvertisementRepository)(implic
 
   def createAdvertisement(carModel: CarAdvertisementRequest): Future[Either[String, String]] = {
     if (verifyQueryParams(carModel.title, carModel.price, carModel.mileage)) {
+
       checkFuelType(carModel) match {
+
         case Right(fuelType) =>
           repo.createAdvertisement(carModel.title, carModel.fuel, carModel.price, carModel.isNew, carModel.mileage).map {
+
             createResponse =>
               createResponse match {
                 case Right(data) => Right(CAR_ADVERT_CREATED_SUCCESSFULLY)

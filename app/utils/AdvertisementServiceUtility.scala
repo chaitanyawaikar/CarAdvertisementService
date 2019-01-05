@@ -17,6 +17,7 @@ object AdvertisementServiceUtility {
 
       case (None, None) => Right("id", "asc")
       case (Some(true), Some(true)) => Right(sortBy.get.toLowerCase(), sortOrder.get.toLowerCase())
+      case (Some(true),_) => Right(sortBy.get.toLowerCase(),"asc")
       case (Some(false), _) => Left(ErrorMessage(buildCustomMessage(sortBy.get, sortByFieldsList)))
       case (_, Some(false)) => Left(ErrorMessage(buildCustomMessage(sortOrder.get, sortByOrderList)))
       case (_, _) => Right("id", "asc")

@@ -86,7 +86,7 @@ class CarAdvertisementRepository @Inject()(dbConfigProvider: DatabaseConfigProvi
     } match {
       case Success(value) =>
         value.map(Right(_))
-      case Failure(error) => Future.successful(Left(ERROR_UPDATING_CAR_ADVERTISEMENT))
+      case Failure(error) => Future.successful(Left(ERROR_CREATING_CAR_ADVERTISEMENT))
     }
   }
 
